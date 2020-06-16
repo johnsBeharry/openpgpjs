@@ -5,8 +5,9 @@
 		"module": "commonjs",
 		"sourceMap": true,
 		"esModuleInterop": true,
-		"allowJs": true
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
 	},
-	"exclude": ["node_modules"],
+	"exclude": [],
 	"include": ["src"],
 }

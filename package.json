@@ -28,7 +28,7 @@
     "build": "grunt build --compat copy:openpgp_compat && grunt build --lightweight copy:openpgp_lightweight clean:js && grunt build",
     "pretest": "grunt",
     "test": "grunt test",
-    "test-jest": "jest",
+    "test:jest": "jest",
     "lint": "eslint src"
   },
   "compilerOptions": {
@@ -37,13 +37,20 @@
   },
   "jest": {
     "preset": "ts-jest/presets/js-with-ts",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "transformIgnorePatterns": [
+      "node_modules/?!(web-stream-tools)"
+    ]
   },
   "devDependencies": {
+    "@babel/core": "^7.10.2",
     "@mattiasbuelens/web-streams-polyfill": "^0.3.1",
     "@types/jest": "^26.0.0",
+    "@types/node": "^14.0.13",
+    "@types/openpgp": "^4.4.12",
     "asmcrypto.js": "github:openpgpjs/asmcrypto#475cffa5ccb2cf2556427056679414acf3610d1b",
     "babel-core": "^6.26.3",
+    "babel-jest": "^26.0.1",
     "babel-plugin-syntax-async-functions": "^6.13.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-regenerator": "^6.26.0",
@@ -96,6 +103,8 @@
     "whatwg-fetch": "^2.0.3"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-typescript": "^7.10.1",
     "asn1.js": "^5.0.0",
     "bip39": "^3.0.2",
     "node-fetch": "^2.1.2",
